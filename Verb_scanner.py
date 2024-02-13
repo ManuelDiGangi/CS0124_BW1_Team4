@@ -3,16 +3,17 @@ def richiesta(verbo):
     connection = http.client.HTTPConnection(host, port)
     connection.request(verbo, '/')
     response = connection.getresponse()
-    print(f"Il metodo abilitato: {verbo} - stato:",response.status)
+    print(f"Metodo richiesto: {verbo} - stato:",response.status)
     connection.close()
 
-host = input("inserire host/IP del sistema target: ")
+host = input("inserire host/IP del sistema target: ") 
 port = input("inserire la porta del sistema target (default:80): ")
+path = "/" + (input("Inserire eventuale path: ")) + "/" #Concatenzione del path
 
 if(port == ""):
     port = 80
     
-try:
+try: #Esecuzione dei vari tipi di richieste al server
     richiesta("GET")
     richiesta("HEAD")
     richiesta("DELETE")
