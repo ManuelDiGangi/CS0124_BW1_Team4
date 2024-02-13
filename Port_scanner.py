@@ -2,7 +2,7 @@ import socket
 
 open_ports = []
 
-def scan_ports(target, start_port, end_port)
+def scan_ports(target, start_port, end_port):
 
     for port in range(start_port, end_port + 1):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
