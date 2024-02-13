@@ -1,7 +1,7 @@
 import http.client
 def richiesta(verbo):
     connection = http.client.HTTPConnection(host, port)
-    connection.request(verbo, '/')
+    connection.request(verbo, path)
     response = connection.getresponse()
     print(f"Metodo richiesto: {verbo} - stato:",response.status)
     connection.close()
