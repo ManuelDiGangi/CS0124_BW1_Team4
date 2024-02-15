@@ -28,3 +28,5 @@ scan_ports(target_host, start_port, end_port)
 
 if not open_ports:
         print(f"Nessuna porta aperta trovata su {target_host}")
+else:
+	print(open_ports)
