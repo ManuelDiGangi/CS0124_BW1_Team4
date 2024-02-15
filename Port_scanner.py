@@ -1,32 +1,39 @@
 import socket
 
 open_ports = []
-
+#costruiamo la nostra funzione
 def scan_ports(target, start_port, end_port):
 
-    for port in range(start_port, end_port + 1):
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  
-	    #utilizzo protocollo tcp perchè l'udp è un protocollo connectionless e di conseguenza 
-	    #non è possibile verificare la risposta della porta
+#ciclo per controllo ogni porta in range
 
-        result = sock.connect_ex((target, port)) 
+	for port in range(start_port, end_port + 1):
+	
+#creazione oggetto socket per la connessione
+		sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  
 
-        if result == 0:
-            print(f"Porta {port} - Aperta")
-	else : 
-	    print(f"Porta {port} - Chiusa")
-		
-	sock.close()
+#restituisce un output in base alla porta e IP target
+		result = sock.connect_ex((target, port)) 
 
-    return 0
+		if result == 0:
+			print(f"Porta {port} - Aperta")
+		else : 
+			print(f"Porta {port} - Chiusa")
+#chiusura socket
+		sock.close()
 
+	return 0
+#utente inserisce IP Target
 target_host = input("Inserisci l'indirizzo IP del target: ")
+#utente inserisce la prima porta
 start_port = int(input("Inserisci la porta iniziale dello scan: "))
+#utente inserisce l'ultima porta
 end_port = int(input("Inserisci la porta finale dello scan: "))
 
 scan_ports(target_host, start_port, end_port)
-
+# in base al risultato della scansione mostra la lista porte aperte o nessuna lista
 if not open_ports:
-        print(f"Nessuna porta aperta trovata su {target_host}")
+	print(f"Nessuna porta aperta trovata su {target_host}")
+	open_ports.append(port)
 else:
-	print(open_ports)
+    print(open_ports)
+
