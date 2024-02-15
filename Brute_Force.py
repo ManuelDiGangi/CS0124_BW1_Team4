@@ -4,9 +4,23 @@ import requests
 url = "http://192.168.50.101/dvwa/login.php"
 user_cor = "" #user corretto
 pwd_cor = "" #password corretta
+username_file = "usernames.lst"
+password_file = "passwords.lst"
 
 #_____________________ INPUT ______________________________#
 print("#################################################################")
+appo = input("#\t\t\t\t\t\t\t\t#\n#\tInserisci dati richiesti o usa quelli di default\t#\n#\tDigita url target: ...")
+if (appo != ""):
+	url = appo
+
+appo = input("#\tDigita path file nome utente:... ")
+if (appo != ""):
+	username_file = appo
+	
+appo = input("#\tDigita path file password:... ")
+if (appo != ""):
+	password_file = appo
+	
 lv_sicurezza=input("#\t\t\t\t\t\t\t\t#\n#\tDigita livello di sicurezza: low - medium - high\t#\n#\tDefault low: ")
 print("#\t\t\t\t\t\t\t\t#\n#################################################################\n\n")
 lv_sicurezza = lv_sicurezza.lower()
@@ -14,8 +28,8 @@ if (lv_sicurezza not in ("low", "medium", "high")):
 	lv_sicurezza = "low"
 
 #_____________________ FILE ______________________________#
-username_file = open("usernames.lst")
-password_file = open("passwords.lst")
+username_file = open(username_file)
+password_file = open(password_file)
 
 usernames = username_file.readlines() #Creo liste con nomi
 passwords = password_file.readlines() #Creo liste con password
