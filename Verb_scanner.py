@@ -6,10 +6,10 @@ def richiesta(verbo):
     print(f"Metodo richiesto: {verbo} - stato:",response.status)
     connection.close()
 
-host = input("inserire host/IP del sistema target: ") 
-port = input("inserire la porta del sistema target (default:80): ")
-path = "/" + (input("Inserire eventuale path: ")) + "/" #Concatenzione del path
-
+host = input("inserire host/IP del sistema target: ") #richiesta inserimento IP
+port = input("inserire la porta del sistema target (default:80): ") #richiesta inserimento porta
+path = "/" + (input("Inserire eventuale path: ")) + "/" #Concatenzione del path #richiesta inserimento path
+#porta di default richiesta dall' esercizio
 if(port == ""):
     port = 80
     
