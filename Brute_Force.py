@@ -1,4 +1,4 @@
-import requests
+import requests #importo libreria requests
 
 # URL di login
 url = "http://192.168.50.101/dvwa/login.php"
