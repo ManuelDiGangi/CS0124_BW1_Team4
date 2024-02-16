@@ -1,4 +1,4 @@
-import socket
+import socket  #importo libreria socket
 
 open_ports = []
 #costruiamo la nostra funzione
